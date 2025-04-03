@@ -22,7 +22,7 @@ publishing {
             url = "http://52.23.58.40:8081/repository/maven-releases/"  // Update with your actual Nexus URL
             credentials {
                 username = project.findProperty("nexusUser") ?: "admin"
-                password = project.findProperty("nexusPassword") ?: "admin123"
+                password = project.findProperty("nexusPassword") ?: "123456"
             }
             allowInsecureProtocol = true  // Required if using HTTP instead of HTTPS
         }
