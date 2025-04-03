@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'maven-publish'  // Ensure this is included
+    id 'maven-publish'
 }
 
-group = 'com.example'   // Change this to your package name
-version = '1.0.0'
+group = 'com.example'
+version = '1.0.0'  // Use '1.0.0-SNAPSHOT' for snapshot versions
 
 repositories {
     mavenCentral()
@@ -19,11 +19,12 @@ publishing {
     repositories {
         maven {
             name = "nexus"
-            url = "http://your-nexus-server:8081/repository/maven-releases/"  // Update with your Nexus URL
+            url = "http://52.23.58.40:8081/repository/maven-releases/"  // Update with your actual Nexus URL
             credentials {
                 username = project.findProperty("nexusUser") ?: "admin"
-                password = project.findProperty("nexusPassword") ?: "123456"
+                password = project.findProperty("nexusPassword") ?: "admin123"
             }
+            allowInsecureProtocol = true  // Required if using HTTP instead of HTTPS
         }
     }
 }
